@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="jumbotron">
+            <h1>Vista de productos</h1>
+            <br>
+            <% if (hayProductos){ %>
+                <div class="table-responsive">
+                    <table class="table table-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Foto</th>
+                        </tr>
+                        <% productos.forEach(function(producto) { %>
+                            <tr>
+                                <td><%=producto.title%></td>
+                                <td><%=producto.price%></td>
+                                <td><img width="50" src=<%=producto.thumbnail%> alt="Not Found"></td>
+                            </tr>
+                        <%});%>
+                    </table>
+                </div>
+            <%}else{%>
+                <h3 class="alert alert-warning">No se encontraron productos</h3>
+            <%}%>
+            <br>
+            <a href="/" type="button" class="btn btn-primary">Ingresar Producto</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+extends layouts/index.pug
+
+block vista
+    div(class="jumbotron")
+        h1="Vista de Productos"
+        br
+        if hayProductos
+            div(class="table-responsive")
+                table(class="table table-dark")
+                    tr
+                        th="Nombre"
+                        th="Precio"
+                        th="Foto"
+                        each producto in productos 
+                            tr
+                                td=producto.title 
+                                td=producto.price 
+                                td
+                                    img(width="50" src=producto.thumbnail alt="not found")
+        else 
+            h3(class="alert alert-warning")="No se encontraron productos"
+        br
+        a(href="/" type="button" class="btn btn-primary")="Cargar nuevo producto"
